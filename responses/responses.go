@@ -1,7 +1,6 @@
 package responses
 
 import (
-	"encoding/json"
 	"encoding/xml"
 	"fmt"
 )
@@ -40,7 +39,7 @@ type Suggestion struct {
 	Score    float64 `json:"score"`
 	Place    string  `json:"place"`
 	Geometry Coord   `json:"geometry"`
-	Country  String  `json:"country"`
+	Country  string  `json:"country"`
 }
 
 type Blend struct {
@@ -76,14 +75,15 @@ type Forward struct {
 	Thanks   string   `json:"thanks"`
 }
 
-func (f *Forward) toString() {
-	return fmt.Printf("%+v\n", f)
+func (f *Forward) toString() string {
+	S := fmt.Sprintf("%+v\n", f)
+	return S
 }
 
 type Reverse Forward
 
-func (r *Reverse) toString() {
-	return fmt.Printf("%+v\n", r)
+func (r *Reverse) toString() string {
+	return fmt.Sprintf("%+v\n", r)
 }
 
 type AutoSuggest struct {
@@ -93,8 +93,8 @@ type AutoSuggest struct {
 	Thanks      string       `json:"thanks"`
 }
 
-func (a *AutoSuggest) toString() {
-	return fmt.Printf("%+v\n", a)
+func (a *AutoSuggest) toString() string {
+	return fmt.Sprintf("%+v\n", a)
 }
 
 type StandardBlend struct {
@@ -104,8 +104,8 @@ type StandardBlend struct {
 	Thanks  string   `json:"thanks"`
 }
 
-func (s *StandardBlend) toString() {
-	return fmt.Printf("%+v\n", s)
+func (s *StandardBlend) toString() string {
+	return fmt.Sprintf("%+v\n", s)
 }
 
 type Grid struct {
@@ -115,8 +115,8 @@ type Grid struct {
 	Thanks  string   `json:"thanks"`
 }
 
-func (g *Grid) toString() {
-	return fmt.Printf("%+v\n", g)
+func (g *Grid) toString() string {
+	return fmt.Sprintf("%+v\n", g)
 }
 
 type Languages struct {
@@ -126,8 +126,8 @@ type Languages struct {
 	Thanks    string     `json:"thanks"`
 }
 
-func (l *Languages) toString() {
-	return fmt.Printf("%+v\n", l)
+func (l *Languages) toString() string {
+	return fmt.Sprintf("%+v\n", l)
 }
 
 type Error struct {
@@ -136,8 +136,8 @@ type Error struct {
 	Thanks  string
 }
 
-func (e *Error) toString() {
-	return fmt.Printf("%+v\n", e)
+func (e *Error) toString() string {
+	return fmt.Sprintf("%+v\n", e)
 }
 
 type Response interface {
